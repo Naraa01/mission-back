@@ -2,7 +2,7 @@ package com.example.mission_back.entity;
 
 import java.time.LocalDateTime;
 
-import com.example.mission_back.enums.CommonStatus;
+// import com.example.mission_back.enums.CommonStatus;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.SQLDelete;
@@ -37,18 +37,18 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, updatable = false)
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+    // @Column(nullable = false, updatable = false)
+    // @CreationTimestamp
+    // private LocalDateTime createdAt;
 
-    @Column(nullable = true)
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    // @Column(nullable = true)
+    // @UpdateTimestamp
+    // private LocalDateTime updatedAt;
 
-    @Column(nullable = true)
-    private LocalDateTime deletedAt;
+    // @Column(nullable = true)
+    // private LocalDateTime deletedAt;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private CommonStatus status = CommonStatus.ACTIVE;
+    // @Enumerated(EnumType.STRING)
+    // @Column(nullable = false)
+    // private CommonStatus status = CommonStatus.ACTIVE;
 }
