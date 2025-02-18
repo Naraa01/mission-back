@@ -49,42 +49,10 @@ public class ProductService {
 
       return new PaginationResponse(productResponses, productPage.getNumber() + 1, productPage.getTotalElements(),
           productPage.getTotalPages());
-      // return new PaginationResponse(productResponses, productPage.getNumber() + 1,
-      // productPage.getTotalPages(),
-      // productPage.getTotalElements());
     } catch (Exception e) {
       throw new RuntimeException("Error occurred while fetching products", e);
     }
   }
-
-  // @Transactional(readOnly = true)
-  // public PaginationResponse findAll(int page, int max, String q) {
-  // Pageable pageable = PageRequest.of(page - 1, max);
-  // Page<Product> productPage;
-
-  // if (q == null || q.isEmpty()) {
-  // productPage = productRepository.findAll(pageable);
-  // } else {
-  // productPage =
-  // productRepository.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(q,
-  // q, pageable);
-  // }
-
-  // List<ProductResponse> productResponses = productPage.getContent().stream()
-  // .map(ProductResponse::new)
-  // .toList();
-
-  // return new PaginationResponse(productResponses, productPage.getNumber() + 1,
-  // productPage.getTotalPages(),
-  // productPage.getTotalElements());
-  // }
-
-  // public List<ProductResponse> findAll() {
-  // List<Product> products = productRepository.findAll();
-  // return products.stream()
-  // .map(ProductResponse::new)
-  // .toList();
-  // }
 
   @Transactional(readOnly = true)
   public ProductResponse findOne(Long id) {

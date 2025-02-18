@@ -35,9 +35,7 @@ public class UserService {
   private final UserRepository userRepository;
   private final VerificationCodeRepository verificationCodeRepository;
   private final PasswordResetTokenRepository passwordResetTokenRepository;
-  // private final UploadedFileRepository uploadedFileRepository;
   private final PasswordEncoder passwordEncoder;
-  // private final FileUploadService fileUploadService;
 
   @Transactional
   public UserResponse create(@Valid CreateUserRequest request) {
@@ -51,8 +49,6 @@ public class UserService {
     VerificationCode verificationCode = new VerificationCode(user);
     user.setVerificationCode(verificationCode);
     verificationCodeRepository.save(verificationCode);
-    // SendWelcomeEmailJob sendWelcomEmailJob = new SendWelcomeEmailJob(user.getId());
-    // BackgroundJobRequest.enqueue(sendWelcomEmailJob);
   }
 
   @Transactional
@@ -71,8 +67,6 @@ public class UserService {
         .orElseThrow(() -> ApiException.builder().status(404).message("User not found").build());
     PasswordResetToken passwordResetToken = new PasswordResetToken(user);
     passwordResetTokenRepository.save(passwordResetToken);
-    // SendResetPasswordEmailJob sendResetPasswordEmailJob = new SendResetPasswordEmailJob(passwordResetToken.getId());
-    // BackgroundJobRequest.enqueue(sendResetPasswordEmailJob);
   }
 
   @Transactional
@@ -112,18 +106,6 @@ public class UserService {
 
   public UserResponse updateProfilePicture(MultipartFile file) {
     User user = SecurityUtil.getAuthenticatedUser();
-    // // UploadedFile uploadedFile = new UploadedFile(file.getOriginalFilename(), file.getSize(), user);
-    // try {
-    //   String url = fileUploadService.uploadFile(
-    //       uploadedFile.buildPath("profile-picture"),
-    //       file.getBytes());
-    //   uploadedFile.onUploaded(url);
-    //   user.setProfileImageUrl(url);
-    //   userRepository.save(user);
-    //   uploadedFileRepository.save(uploadedFile);
-    // } catch (IOException e) {
-    //   throw new RuntimeException(e);
-    // }
 
     userRepository.save(user);
 

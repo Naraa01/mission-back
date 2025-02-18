@@ -49,10 +49,6 @@ public class ProductController {
     logger.info("Getting product list ->");
     return ResponseEntity.ok(paginationResponse);
   }
-  // public ResponseEntity<List<ProductResponse>> getAllProducts() {
-  // List<ProductResponse> products = productService.findAll();
-  // return ResponseEntity.ok(products);
-  // }
 
   @GetMapping("/{id}")
   public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {

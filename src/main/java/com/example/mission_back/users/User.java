@@ -24,9 +24,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
-/**
- * User is an entity that can be authenticated and authorized to access the application.
- */
 @Entity
 @Getter
 @NoArgsConstructor
@@ -116,9 +113,6 @@ public class User extends AbstractEntity implements UserDetails {
   public boolean isCredentialsNonExpired() {
     return true;
   }
-
-  // If you want to not allow the user to login before verifying their email, you can change this to
-  // return verified;
   @Override
   public boolean isEnabled() {
     return true;

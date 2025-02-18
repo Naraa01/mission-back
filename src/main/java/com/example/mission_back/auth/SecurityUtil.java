@@ -12,13 +12,6 @@ import org.springframework.security.web.context.SecurityContextRepository;
 public class SecurityUtil {
   private static final SecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
 
-  /**
-   * Get the authenticated user from the SecurityContextHolder
-   * 
-   * @throws com.example.backend.util.exception.ApiException if the user is not
-   *                                                         found in the
-   *                                                         SecurityContextHolder
-   */
   public static User getAuthenticatedUser() {
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     if (principal instanceof User user) {
